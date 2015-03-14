@@ -25,8 +25,11 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'tpope/vim-commentary'
+NeoBundle 'xolox/vim-misc'
+NeoBundle 'xolox/vim-session'
 
 call neobundle#end()
+
 
 " Required:
 filetype plugin indent on
@@ -43,11 +46,14 @@ set  t_Co=256
 "colorscheme github
 colorscheme desert
 set nu
-
-" Save session on quitting Vim
-autocmd VimLeave * NERDTreeClose
-autocmd VimLeave * mksession! [filename]
+"Open NERDTree automatically
+"save session on quitting Vim
+"autocmd VimLeave * NERDTreeClose
 
 " Restore session on starting Vim
-autocmd VimEnter * source [filename]
-autocmd VimEnter * NERDTree
+
+"autocmd VimEnter * NERDTree
+
+" Remap NERDTree to ',ne' in normal  mode
+let mapleader = ","
+nmap <leader>ne :NERDTree<cr>
