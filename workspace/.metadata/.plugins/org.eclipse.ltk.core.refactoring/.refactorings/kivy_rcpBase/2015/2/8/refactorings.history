@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;kivy_rcpBase/scroll_test/scroll_view.kv&apos; to &apos;scrollview.kv&apos;" description="Rename resource &apos;scroll_view.kv&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="scroll_test/scroll_view.kv" name="scrollview.kv" stamp="1424249870995" updateReferences="true"/>
+</session>

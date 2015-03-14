@@ -1,0 +1,66 @@
+#: import main main
+#: import ListAdapter kivy.adapters.listadapter.ListAdapter
+
+
+<SearchDrugScreen>:
+	BoxLayout:
+		orientation: 'vertical'
+		search_input: search_box
+		search_results: search_results_list
+		dci_search: dci_checkbox
+		Label:
+			size_hint_y: 0.1
+			text: "CHOIX DU MEDICAMENT"
+		BoxLayout:
+			size_hint_y: 0.1
+			CheckBox:
+				group: "g"
+				active: True
+			Label: 
+				text: "SPECIALITE"
+		BoxLayout: 
+			size_hint_y: 0.1
+			CheckBox:
+				group: "g"
+				id: dci_checkbox
+			Label: 
+				text: "DCI"
+		TextInput:
+			id: search_box
+			size_hint_y: None
+			height: "40dp"
+			focus: True
+			multiline: False
+			on_text: root.search_drug()
+		ListView:
+			id: search_results_list
+			size_hint_y: 0.6
+			adapter:
+				ListAdapter(data=[], cls=main.DrugButton)
+		Button:
+			text: "AFFICHER FICHE RCP"
+			size_hint_y: 0.1
+			on_press: root.manager.current = 'showrcp'
+
+<ShowRCPScreen>:
+	BoxLayout:
+		orientation: 'vertical'
+		chosen_drug: ""
+		Button:
+			size_hint_y: None
+			height: "30dp"
+			text: 'RETOUR ACCUEIL'
+			on_press: root.manager.current = 'searchdrug'
+		ScrollView:
+			do_scroll_x: False
+			Rcp_GridLayout:
+				canvas:
+
+<DrugButton>:
+	chosen_drug: drug_button
+	id: drug_button
+	on_press: root.save_chosen(self.chosen_drug.text)
+	
+
+	
+

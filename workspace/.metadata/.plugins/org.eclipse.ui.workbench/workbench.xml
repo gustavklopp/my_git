@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbench progressCount="19" version="2.0">
+<workbenchAdvisor/>
+<window height="874" width="1398" x="0" y="26">
+<fastViewData fastViewLocation="1024"/>
+<perspectiveBar>
+<itemSize x="160"/>
+</perspectiveBar>
+<coolbarLayout>
+<coolItem id="group.file" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="144" y="30"/>
+<coolItem id="additions" itemType="typeGroupMarker"/>
+<coolItem id="com.python.pydev.navigate.actionSet" itemType="typeToolBarContribution" x="40" y="30"/>
+<coolItem id="org.eclipse.debug.ui.launch.toolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="156" y="30"/>
+<coolItem id="org.eclipse.debug.ui.main.toolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="com.python.pydev.toolbars.evaluateActionSetterToolbar" itemType="typeToolBarContribution" x="40" y="30"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="60" y="30"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="68" y="30"/>
+<coolItem id="group.nav" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="232" y="30"/>
+<coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.ui.browser.editor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.python.pydev.editor.PythonEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="group.help" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
+</coolbarLayout>
+<page focus="true" label="Workspace - PyDev">
+<editors>
+<editorArea activeWorkbook="DefaultEditorWorkbook">
+<info part="DefaultEditorWorkbook">
+<folder appearance="1" expanded="2">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+<part id="6"/>
+<part id="7"/>
+<part id="8"/>
+<part id="9"/>
+</presentation>
+</folder>
+</info>
+</editorArea>
+<editor id="org.python.pydev.editor.PythonEditor" name="manage.py" partName="manage" path="/home/susskind/workspace/RCP_website/manage.py" title="manage" tooltip="RCP_website/manage.py" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/RCP_website/manage.py"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor activePart="true" focus="true" id="org.python.pydev.editor.PythonEditor" name="settings.py" partName="settings" path="/home/susskind/workspace/RCP_website/RCP_website/settings.py" title="settings" tooltip="RCP_website/RCP_website/settings.py" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/RCP_website/RCP_website/settings.py"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="939" selectionTopPixel="392"/>
+</editor>
+<editor id="org.python.pydev.editor.PythonEditor" name="urls.py" partName="urls" path="/home/susskind/workspace/RCP_website/RCP_website/urls.py" title="urls" tooltip="RCP_website/RCP_website/urls.py" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/RCP_website/RCP_website/urls.py"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="338" selectionTopPixel="0"/>
+</editor>
+<editor id="org.python.pydev.editor.PythonEditor" name="index.py" partName="index" path="/home/susskind/workspace/RCP_website/RCP_website/views/index.py" title="index" tooltip="RCP_website/RCP_website/views/index.py" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/RCP_website/RCP_website/views/index.py"/>
+<editorState selectionHorizontalPixel="0" selectionLength="10" selectionOffset="250" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.ui.DefaultTextEditor" name="index.html" partName="index.html" path="/home/susskind/workspace/RCP_website/TasksManager/templates/en/public/index.html" title="index.html" tooltip="RCP_website/TasksManager/templates/en/public/index.html" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/RCP_website/TasksManager/templates/en/public/index.html"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="190" selectionTopPixel="0"/>
+</editor>
+<editor id="org.python.pydev.editor.PythonEditor" name="connection.py" partName="connection" path="/home/susskind/workspace/RCP_website/RCP_website/views/connection.py" title="connection" tooltip="RCP_website/RCP_website/views/connection.py" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/RCP_website/RCP_website/views/connection.py"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="146" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.ui.DefaultTextEditor" name="connection.html" partName="connection.html" path="/home/susskind/workspace/RCP_website/TasksManager/templates/en/public/connection.html" title="connection.html" tooltip="RCP_website/TasksManager/templates/en/public/connection.html" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/RCP_website/TasksManager/templates/en/public/connection.html"/>
+<editorState selectionHorizontalPixel="0" selectionLength="44" selectionOffset="115" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.ui.DefaultTextEditor" name="base.html" partName="base.html" path="/home/susskind/workspace/RCP_website/TasksManager/templates/en/public/base.html" title="base.html" tooltip="RCP_website/TasksManager/templates/en/public/base.html" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/RCP_website/TasksManager/templates/en/public/base.html"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="99" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.ui.DefaultTextEditor" name="style.css" partName="style.css" path="/home/susskind/workspace/RCP_website/TasksManager/static/css/style.css" title="style.css" tooltip="RCP_website/TasksManager/static/css/style.css" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/RCP_website/TasksManager/static/css/style.css"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="39" selectionTopPixel="0"/>
+</editor>
+<editor id="org.python.pydev.editor.PythonEditor" name="test_path.py" partName="test_path" path="/home/susskind/workspace/RCP_website/RCP_website/test_path.py" title="test_path" tooltip="RCP_website/RCP_website/test_path.py" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/RCP_website/RCP_website/test_path.py"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="185" selectionTopPixel="0"/>
+</editor>
+</editors>
+<views>
+<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
+<viewState/>
+</view>
+<view id="org.python.pydev.navigator.view" partName="PyDev Package Explorer">
+<viewState CommonNavigator.LINKING_ENABLED="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0">
+<expanded IMemento.internal.id="/home/susskind/workspace/RCP_website"/>
+<expanded IMemento.internal.id="/home/susskind/workspace/RCP_website/RCP_website"/>
+<selected IMemento.internal.id="/home/susskind/workspace/RCP_website/RCP_website/test_path.py"/>
+</viewState>
+</view>
+</views>
+<perspectives activePart="org.python.pydev.editor.PythonEditor" activePerspective="org.python.pydev.ui.PythonPerspective">
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="org.python.pydev.ui.perspective.PythonPerspectiveFactory" id="org.python.pydev.ui.PythonPerspective" label="PyDev"/>
+<alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.NavigateActionSet"/>
+<alwaysOnActionSet id="com.python.pydev.navigate.actionSet"/>
+<show_view_action id="org.python.pydev.views.PyCodeCoverageView"/>
+<show_view_action id="org.python.pydev.navigator.view"/>
+<show_view_action id="org.python.pydev.debug.pyunit.pyUnitView"/>
+<show_view_action id="org.eclipse.search.ui.views.SearchView"/>
+<show_view_action id="org.eclipse.ui.console.ConsoleView"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="org.eclipse.ui.views.ProblemView"/>
+<show_view_action id="org.eclipse.pde.runtime.LogView"/>
+<show_view_action id="org.eclipse.ui.views.TaskList"/>
+<new_wizard_action id="org.python.pydev.ui.wizards.project.PythonProjectWizard"/>
+<new_wizard_action id="org.python.pydev.ui.wizards.files.PythonSourceFolderWizard"/>
+<new_wizard_action id="org.python.pydev.ui.wizards.files.PythonPackageWizard"/>
+<new_wizard_action id="org.python.pydev.ui.wizards.files.PythonModuleWizard"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.folder"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.file"/>
+<new_wizard_action id="org.eclipse.ui.editors.wizards.UntitledTextFileWizard"/>
+<hide_toolbar_item_id id="org.eclipse.debug.ui.commands.RunToLine"/>
+<hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<view id="org.python.pydev.navigator.view"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<fastViewBars/>
+<layout>
+<mainWindow>
+<info folder="true" part="topLeft">
+<folder activePageID="org.python.pydev.navigator.view" appearance="2" expanded="2">
+<page content="org.python.pydev.navigator.view" label="PyDev Package Explorer"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="stickyFolderRight" ratio="0.7495069" ratioLeft="760" ratioRight="254" relationship="2" relative="topLeft">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.25936884" ratioLeft="263" ratioRight="751" relationship="2" relative="topLeft"/>
+<info folder="true" part="bottom" ratio="0.71192056" ratioLeft="645" ratioRight="261" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.search.ui.views.SearchView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.ProgressView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+</perspectives>
+<workingSets/>
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.python.pydev.editor.PythonEditor" path="/RCP_website/RCP_website/settings.py"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.python.pydev.editor.PythonEditor" path="/RCP_website/RCP_website/urls.py"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.python.pydev.editor.PythonEditor" path="/RCP_website/RCP_website/views/index.py"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/RCP_website/TasksManager/templates/en/public/index.html"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.python.pydev.editor.PythonEditor" path="/RCP_website/RCP_website/views/connection.py"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/RCP_website/TasksManager/templates/en/public/connection.html"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/RCP_website/TasksManager/templates/en/public/base.html"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/RCP_website/TasksManager/static/css/style.css"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.python.pydev.editor.PythonEditor" path="/RCP_website/RCP_website/settings.py"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.python.pydev.editor.PythonEditor" path="/RCP_website/RCP_website/test_path.py"/>
+</editors>
+<item historyLabel="index.html" index="3">
+<position/>
+</item>
+<item historyLabel="index" index="2">
+<position info="not_deleted" x="143" y="0"/>
+</item>
+<item historyLabel="urls" index="1">
+<position info="not_deleted" x="312" y="0"/>
+</item>
+<item historyLabel="index" index="2">
+<position info="not_deleted" x="143" y="0"/>
+</item>
+<item historyLabel="connection" index="4">
+<position info="not_deleted" x="146" y="0"/>
+</item>
+<item historyLabel="connection.html" index="5">
+<position info="not_deleted" x="148" y="0"/>
+</item>
+<item historyLabel="index.html" index="3">
+<position/>
+</item>
+<item historyLabel="connection.html" index="5">
+<position info="not_deleted" x="148" y="0"/>
+</item>
+<item historyLabel="urls" index="1">
+<position info="not_deleted" x="338" y="0"/>
+</item>
+<item historyLabel="index.html" index="3">
+<position/>
+</item>
+<item historyLabel="connection.html" index="5">
+<position info="not_deleted" x="145" y="0"/>
+</item>
+<item historyLabel="connection" index="4">
+<position info="not_deleted" x="146" y="0"/>
+</item>
+<item historyLabel="index.html" index="3">
+<position/>
+</item>
+<item historyLabel="connection" index="4">
+<position info="not_deleted" x="146" y="0"/>
+</item>
+<item historyLabel="index.html" index="3">
+<position/>
+</item>
+<item historyLabel="connection.html" index="5">
+<position info="not_deleted" x="145" y="0"/>
+</item>
+<item historyLabel="urls" index="1">
+<position info="not_deleted" x="338" y="0"/>
+</item>
+<item historyLabel="connection" index="4">
+<position info="not_deleted" x="146" y="0"/>
+</item>
+<item historyLabel="index.html" index="3">
+<position/>
+</item>
+<item historyLabel="connection.html" index="5">
+<position info="not_deleted" x="55" y="0"/>
+</item>
+<item historyLabel="index.html" index="3">
+<position/>
+</item>
+<item historyLabel="connection.html" index="5">
+<position info="not_deleted" x="101" y="0"/>
+</item>
+<item historyLabel="urls" index="1">
+<position info="not_deleted" x="338" y="0"/>
+</item>
+<item historyLabel="base.html" index="6">
+<position info="not_deleted" x="343" y="0"/>
+</item>
+<item historyLabel="index.html" index="3">
+<position info="not_deleted" x="99" y="0"/>
+</item>
+<item historyLabel="urls" index="1">
+<position info="not_deleted" x="338" y="0"/>
+</item>
+<item historyLabel="index" index="2">
+<position info="not_deleted" x="250" y="10"/>
+</item>
+<item historyLabel="base.html" index="6">
+<position info="not_deleted" x="343" y="0"/>
+</item>
+<item historyLabel="index.html" index="3">
+<position info="not_deleted" x="22" y="0"/>
+</item>
+<item historyLabel="base.html" index="6">
+<position info="not_deleted" x="343" y="0"/>
+</item>
+<item historyLabel="index.html" index="3">
+<position info="not_deleted" x="22" y="0"/>
+</item>
+<item historyLabel="base.html" index="6">
+<position info="not_deleted" x="343" y="0"/>
+</item>
+<item historyLabel="index.html" index="3">
+<position info="not_deleted" x="128" y="0"/>
+</item>
+<item historyLabel="base.html" index="6">
+<position info="not_deleted" x="232" y="0"/>
+</item>
+<item historyLabel="urls" index="1">
+<position info="not_deleted" x="338" y="0"/>
+</item>
+<item historyLabel="settings" index="0">
+<position info="not_deleted" x="2638" y="0"/>
+</item>
+<item historyLabel="base.html" index="6">
+<position info="not_deleted" x="99" y="0"/>
+</item>
+<item historyLabel="style.css" index="7">
+<position info="not_deleted" x="39" y="0"/>
+</item>
+<item historyLabel="base.html" index="6">
+<position info="not_deleted" x="99" y="0"/>
+</item>
+<item historyLabel="style.css" index="7">
+<position info="not_deleted" x="39" y="0"/>
+</item>
+<item historyLabel="base.html" index="6">
+<position info="not_deleted" x="99" y="0"/>
+</item>
+<item historyLabel="connection.html" index="5">
+<position info="not_deleted" x="115" y="44"/>
+</item>
+<item historyLabel="index.html" index="3">
+<position info="not_deleted" x="128" y="0"/>
+</item>
+<item historyLabel="settings" index="8">
+<position info="not_deleted" x="192" y="0"/>
+</item>
+<item historyLabel="test_path" index="9">
+<position info="not_deleted" x="41" y="0"/>
+</item>
+<item historyLabel="settings" index="8">
+<position info="not_deleted" x="437" y="42"/>
+</item>
+<item historyLabel="test_path" index="9">
+<position info="not_deleted" x="185" y="0"/>
+</item>
+<item historyLabel="settings" index="8">
+<position info="not_deleted" x="500" y="0"/>
+</item>
+<item historyLabel="test_path" index="9">
+<position info="not_deleted" x="185" y="0"/>
+</item>
+<item active="true" historyLabel="settings" index="8">
+<position info="not_deleted" x="500" y="0"/>
+</item>
+</navigationHistory>
+<input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
+</page>
+<workbenchWindowAdvisor/>
+<actionBarAdvisor/>
+<trimLayout>
+<trimArea IMemento.internal.id="128">
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
+</trimArea>
+<trimArea IMemento.internal.id="1024">
+<trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
+<trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+</trimArea>
+</trimLayout>
+</window>
+<mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.python.pydev.editor.PythonEditor" name="test_path.py" tooltip="RCP_website/RCP_website/test_path.py">
+<persistable path="/RCP_website/RCP_website/test_path.py"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="style.css" tooltip="RCP_website/TasksManager/static/css/style.css">
+<persistable path="/RCP_website/TasksManager/static/css/style.css"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="base.html" tooltip="RCP_website/TasksManager/templates/en/public/base.html">
+<persistable path="/RCP_website/TasksManager/templates/en/public/base.html"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="connection.html" tooltip="RCP_website/TasksManager/templates/en/public/connection.html">
+<persistable path="/RCP_website/TasksManager/templates/en/public/connection.html"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.python.pydev.editor.PythonEditor" name="connection.py" tooltip="RCP_website/RCP_website/views/connection.py">
+<persistable path="/RCP_website/RCP_website/views/connection.py"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="index.html" tooltip="RCP_website/TasksManager/templates/en/public/index.html">
+<persistable path="/RCP_website/TasksManager/templates/en/public/index.html"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.python.pydev.editor.PythonEditor" name="index.py" tooltip="RCP_website/RCP_website/views/index.py">
+<persistable path="/RCP_website/RCP_website/views/index.py"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.python.pydev.editor.PythonEditor" name="__init__.py" tooltip="RCP_website/RCP_website/views/__init__.py">
+<persistable path="/RCP_website/RCP_website/views/__init__.py"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.python.pydev.editor.PythonEditor" name="urls.py" tooltip="RCP_website/RCP_website/urls.py">
+<persistable path="/RCP_website/RCP_website/urls.py"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.python.pydev.editor.PythonEditor" name="settings.py" tooltip="RCP_website/RCP_website/settings.py">
+<persistable path="/RCP_website/RCP_website/settings.py"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.python.pydev.editor.PythonEditor" name="manage.py" tooltip="RCP_website/manage.py">
+<persistable path="/RCP_website/manage.py"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.python.pydev.editor.PythonEditor" name="main.py" tooltip="kivy_rcpBase/stackoverflow_test/main.py">
+<persistable path="/kivy_rcpBase/stackoverflow_test/main.py"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.python.pydev.editor.PythonEditor" name="rst_mod_WORKING.py" tooltip="kivy_rcpBase/rst_test/rst_mod_WORKING.py">
+<persistable path="/kivy_rcpBase/rst_test/rst_mod_WORKING.py"/>
+</file>
+</mruList>
+</workbench>

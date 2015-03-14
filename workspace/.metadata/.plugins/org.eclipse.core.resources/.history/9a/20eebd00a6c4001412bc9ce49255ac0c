@@ -1,0 +1,47 @@
+from bs4 import BeautifulSoup
+import os
+import re # to find and replace image and table source
+import html2ReST_table  # the custom file to replace table by ReST comptatible format
+
+def convert_to_text(file):
+#     file = "./rcp/output.html"
+    head, filename = os.path.split(file)
+    file_copy = head + "/file_copy.html" 
+
+    '''Find and replace Image in html by ReST loadable text: like '.. image::imagepath' '''
+    with open(file, 'r', encoding='windows-1252') as f:
+        with open(file_copy, 'w', encoding='windows-1252') as f_copy:
+            s_replaced = re.sub(r'<img.*src="(.*)\..*gif">', r'.. image:: \1.png', f.read())
+#             print(s_replaced)
+            f_copy.write(s_replaced)
+    os.remove(file)
+    os.rename(file_copy, file)
+    
+    '''Find and replace TABLE in html by ReST Table text'''
+    with open(file, 'r', encoding='windows-1252') as f:
+        with open(file_copy, 'wb') as f_copy:
+            soup = BeautifulSoup(f, from_encoding="windows-1252")
+            all_table = soup.findAll("table", {'class': "AmmCorpsTexteTable"}) # not working!!!
+            all_table = soup.findAll("table")
+            for tab in all_table:
+                tab_str = str(tab)
+                print(tab_str)
+                table_replaced = html2ReST_table.html2ReST_table(tab_str)
+#                 print(table_replaced)
+                tab.replace_with('<p class="AmmCorpsTexte">\n\n'+ table_replaced +'\n\n</p>')
+    
+            import html.parser    # to convert html entity (&lt; etc..) in string
+            h = html.parser.HTMLParser()
+    
+            soup = soup.encode('utf-8', formatter=h.unescape)
+            f_copy.write(soup)
+    os.remove(file)
+    os.rename(file_copy, file)
+
+if __name__ == "__main__":
+    file = '../html_files/rcp_mod/0047821.html'
+    convert_to_text(file)
+
+
+
+    

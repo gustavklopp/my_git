@@ -1,0 +1,36 @@
+<MyLabelWithBackground>:
+	canvas.before:
+    	Color:
+        	rgb: .3, .3, .3 # your color here
+        Rectangle:
+        	pos: self.pos
+			size: self.size
+
+<MyHBoxLayout>:
+	spacing: 2
+	orientation: 'horizontal'
+
+<Demo>:
+    cols: 1
+
+	BoxLayout:
+		orientation: 'vertical'
+		spacing: 2
+	    MyHBoxLayout:
+	        MyLabelWithBackground:
+	            text: 'First column'
+	        MyLabelWithBackground:
+	            text: 'second Line'
+	            
+	        MyLabelWithBackground:
+	            text: 'this is the end'
+	
+	        MyLabelWithBackground:
+	            text: 'Second Column'
+		
+	    MyHBoxLayout:
+	        MyLabelWithBackground:
+	            text: 'First column'
+
+        	MyLabelWithBackground:
+            	text: 'Second Column'

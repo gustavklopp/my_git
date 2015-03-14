@@ -1,0 +1,447 @@
+
+<HTML>
+<HEAD>
+	<TITLE>Autorisation - Accueil</TITLE>
+	<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+	<LINK href="style/style.css" type="text/css" rel="stylesheet">	<link rel="icon" type="image/x-icon" href="favicon.ico" />
+</HEAD>
+
+<BODY>
+
+<TABLE class="menu" cellspacing="0" cellpadding="0" width="100%">
+	<TR>
+		<TD>
+			<TABLE width="800" cellspacing="0" cellpadding="0">
+				<TR>
+					<TD width="1%"><IMG src="images/nava1.gif" border="0"></TD>
+					<TD width="1%"><IMG src="images/nava2.gif" border="0"></TD>
+					<TD width="1%"><IMG src="images/logo.gif" border="0"></TD>
+					<TD width="1%"><IMG src="images/nava4.gif" border="0"></TD>
+					<TD width="1%"><IMG src="images/spacer.gif" border="0"></TD>
+				</TR>
+			</TABLE>
+		</TD>
+	</TR>
+	<TR style="padding: 0px;">
+		<TD colspan="2">
+			<TABLE class="title" width="796" cellspacing="0" cellpadding="0">
+				<TR>
+					<TD class="rupture">&nbsp;</TD>
+					<TD>Répertoire des Spécialités Pharmaceutiques </TD><TD align="right"><font size="1">mis à jour le 09/01/2015</font></TD>
+				</TR>
+			</TABLE>
+		</TD>
+	</TR>
+	<TR>
+		<TD colspan="2" style="padding-left: 15px;">
+			<TABLE class="navigation">
+				<TR>
+					<TD><A class="navigation" href="index.php">Accueil</A></TD>
+					<TD>|</TD>
+					<TD><A class="navigation" href="glossair/glossair.php">Glossaire</A></TD>
+					<TD>|</TD>
+					<TD><A class="navigation" href="planning/planning.php">Contenu</A></TD>
+					<TD>|</TD>
+					<TD><A class="navigation" href="telecharger/telecharger.php">Téléchargement</A></TD>
+					<TD>|</TD>
+					<TD><A class="navigation" href="aide/aide.php">Aide</A></TD>
+				</TR>
+			</TABLE>
+		</TD>
+	</TR>
+</TABLE>
+<TABLE cellspacing="0" cellpadding="0" width="800px" align="left">
+	<TR>
+		<TD>
+
+
+<SCRIPT language="javaScript" src="./javscript/utiles.js"></SCRIPT>
+
+<SCRIPT language="javascript">
+onload = onload_Page;
+
+function onload_Page()
+{
+	window.document.formRecherche.txtCaracteres.focus();
+}
+
+function MAJfromListeSubstxtCaracteres(identif,libel)
+{
+
+	if(window.document.formRechercheSubs.lstSubstances.value=="")
+	{
+			alert(msgSelecLigne);
+			return;
+	}
+	else
+	{
+			/* Mettre a jour le champ subsid selectionne ds la liste deroulante */
+			window.document.formRecherche.subsid.value=identif;
+			window.document.formRecherche.nomsubs.value=libel;
+			window.document.formRecherche.submit();
+
+	}
+
+}
+/*
+	var tmp = new Array("datePACA", "date", "Date PACA");
+	TabFields[TabFields.length] = tmp;
+*/
+function submitForm()
+{
+	//*** Cas de la liste intermédiaire servant à affiner la recherche
+	if (document.formRecherche.affliste == "1")
+		return false;
+
+
+	//**** Demande de confirmation si aucun critère
+	if ( (!window.document.formRecherche.txtCaracteres.value) &&
+		(!window.document.formRecherche.txtDateDebut.value) &&
+		(!window.document.formRecherche.txtDateFin.value) &&
+		(!window.document.formRecherche.txtDebutMAJ.value) &&
+		(!window.document.formRecherche.txtFinMAJ.value) &&
+		(window.document.formRecherche.lstEtat.selectedIndex==0) &&
+		(window.document.formRecherche.lstRecherche.selectedIndex==0) &&
+		(window.document.formRecherche.lstComm.selectedIndex==0) &&
+		(window.document.formRecherche.lstDoc.selectedIndex==0))
+	  if( !confirm(msgAucunCritere))
+	  	return false;
+
+	TabFields = new Array();
+	//*** Champs obligatoires
+		//recherche par substance / titulaire : libelle obligatoire
+	if (document.formRecherche.lstRecherche.value == "substance")
+	{
+		var tmp = new Array("txtCaracteres", "obligatoire", "Libellé de substance active");
+		TabFields[TabFields.length] = tmp;
+	}
+	else if (document.formRecherche.lstRecherche.value == "labo")
+	{
+		var tmp = new Array("txtCaracteres", "obligatoire", "Nom du laboratoire \/ titulaire");
+		TabFields[TabFields.length] = tmp;
+	}
+
+
+
+	//*** Les dates doivent être valides
+	var tmp = new Array("txtDateDebut", "date", "Date d'octroi de l'autorisation (borne inférieure)");
+	TabFields[TabFields.length] = tmp;
+
+	var tmp = new Array("txtDateFin", "date", "Date d'octroi de l'autorisation (borne supérieure)");
+	TabFields[TabFields.length] = tmp;
+
+	var tmp = new Array("txtDebutMAJ", "date", "Date de mise à jour du document de référence (borne inférieure)");
+	TabFields[TabFields.length] = tmp;
+
+	var tmp = new Array("txtFinMAJ", "date", "Date de mise à jour du document de référence (borne supérieure)");
+	TabFields[TabFields.length] = tmp;
+
+
+
+	//*** Toutes les dates doivent être antérieures ou égales à la date du jour
+	var tmp = new Array("txtDateDebut", "comparaisonDates", "La date d'octroi de l'autorisation (borne inférieure)", "DateDuJour", "antérieure à la date du jour");
+	TabFields[TabFields.length] = tmp;
+
+	var tmp = new Array("txtDateFin", "comparaisonDates", "La date d'octroi de l'autorisation (borne supérieure)", "DateDuJour", "antérieure à la date du jour");
+	TabFields[TabFields.length] = tmp;
+
+	var tmp = new Array("txtDebutMAJ", "comparaisonDates", "La date de mise à jour du document de référence (borne inférieure)", "DateDuJour", "antérieure à la date du jour");
+	TabFields[TabFields.length] = tmp;
+
+	var tmp = new Array("txtFinMAJ", "comparaisonDates", "La date de mise à jour du document de référence (borne supérieure)", "DateDuJour", "antérieure à la date du jour");
+	TabFields[TabFields.length] = tmp;
+
+
+
+	//*** Les intervalles de date doivent être cohérents
+	var tmp = new Array("txtDateDebut", "comparaisonDates", "La borne inférieure de la date d'autorisation", "txtDateFin", "inférieure à la borne supérieure");
+	TabFields[TabFields.length] = tmp;
+
+	var tmp = new Array("txtDebutMAJ", "comparaisonDates", "La borne inférieure de la date de mise à jour", "txtFinMAJ", "antérieure à la borne supérieure");
+	TabFields[TabFields.length] = tmp;
+
+
+	if (!FieldsValid())
+		return false;
+
+	//*** Mise à jour des champs inutiles
+	if (document.formRecherche.lstDoc.value =="0")
+	{
+		document.formRecherche.txtDebutMAJ.value = "";
+		document.formRecherche.txtFinMAJ.value = "";
+	}
+
+	//*** definir l action de formRecherche
+	window.document.formRecherche.subsid.value="";
+	window.document.formRecherche.nomsubs.value="";
+
+	window.document.formRecherche.page.value="1";
+	window.document.formRecherche.action="index.php#result";
+	window.document.formRecherche.submit();
+
+}
+function imprimer()
+{
+
+window.print();
+}
+
+function nextpage(page,nom_element)
+{
+	if (page > 0)
+			{
+
+					document.formRecherche.page.value = page;
+					window.document.formRecherche.affliste.value="1";
+					window.document.formRecherche.action="index.php#result";
+					window.document.formRecherche.submit();
+
+			}
+}
+
+// **** Rafraîchit les champs du formulaire ****************
+function resetForm()
+{
+window.document.location="index.php";
+}
+
+function onChange_DocRef(obj)
+{
+
+	if (obj.value == "0")
+	{
+		window.document.formRecherche.txtFinMAJ.value = "";
+		window.document.formRecherche.txtDebutMAJ.value = "";
+		window.document.formRecherche.txtFinMAJ.disabled = true;
+		window.document.formRecherche.txtDebutMAJ.disabled = true;
+	}
+	else
+	{
+		window.document.formRecherche.txtFinMAJ.disabled = false;
+		window.document.formRecherche.txtDebutMAJ.disabled = false;
+	}
+}
+
+</SCRIPT>
+
+			<TABLE class="colored" cellspacing="0" cellpadding="0" width="100%" align="right">
+			<FORM name="formRecherche" method="POST"  action="index.php#result" onsubmit="submitForm();return false;">
+
+				<INPUT type="hidden" name="page" value="1">
+				<INPUT type="hidden" name="cherche" value="1">
+				<INPUT type="hidden" name="subsid"  value =" ">
+				<INPUT type="hidden" name="nomsubs" value ="">
+				<INPUT type="hidden" name="affliste" value="0">
+				<INPUT type="hidden" name="listeOpen" value="0">
+
+				<INPUT type="hidden" id="DateDuJour" value="24/01/2015">
+
+				<TR>
+					<TD style="padding: 0px 0px 0px 0px;">
+						<TABLE cellpadding="0" cellspacing="0">
+							<TR>
+								<TD class="leftMenu" width="1%" valign="top" style="padding-left: 0px;">
+									<TABLE width="1%" border="0" cellpadding="0" cellspacing="0" valign="top" style="padding: 0px 0px 0px 0px;">
+										<TR>
+											<TD valign="top">
+												<IMG border="0" src="images/fdtab1.gif" align="top">
+											</TD>
+										</TR>
+									</TABLE>
+								</TD>
+								<TD valign="top">
+									<TABLE border="0" class="content" width="594px" cellspacing="0" cellpadding="0">
+										<TR>
+											<TD class="littleTitle">Recherche de spécialités pharmaceutiques</TD>
+										</TR>
+									</TABLE>
+								</TD>
+							</TR>
+						</TABLE>
+					</TD>
+				</TR>
+
+				<TR height="20px"><TD></TD></TR>
+				<TR>
+					<TD align="center">
+						<TABLE width="90%">
+							<TR>
+								<TD>Afin d'accéder aux informations officielles sur les spécialités pharmaceutiques, sélectionnez ou saisissez dans les champs qui suivent les critères de recherche souhaités.</TD>
+							</TR>
+						</TABLE>
+					</TD>
+				</TR>
+				<TR height="10px"><TD></TD></TR>
+				<TR>
+					<TD align="center">
+						<TABLE border="0" class="criteria" width="90%" cellspacing="0" cellpadding="0">
+							<TR class="title">
+								<TD width="1%"><IMG border="0" src="images/dtbleu.gif"></TD>
+								<TD align="left">Rechercher par</TD>
+							</TR>
+							<TR>
+								<TD colspan="2">
+									<TABLE width="100%" border="0" cellspacing="0" cellpadding="0">
+										<TR height="10px">
+											<TD width="20%">&nbsp;</TD>
+											<TD>
+												<SELECT name="lstRecherche" size="1" onChange='javascript:window.document.formRecherche.affliste.value="0";'>
+													<OPTION value="denomination" >Spécialité</OPTION>
+													<OPTION value="substance" >Substance active</OPTION>
+													<OPTION value="labo" >Laboratoire/Titulaire</OPTION>
+												</SELECT>
+											</TD>
+											<TD width="10%">&nbsp;</TD>
+											<TD>
+												<INPUT type="radio" name="radLibelle" value="2" checked> commençant par<BR>
+												<INPUT type="radio" name="radLibelle" value="1" > contenant
+											</TD>
+											<TD align="right">
+												<INPUT type="text" size="26" id="txtCaracteres" name="txtCaracteres" value="" >
+											</TD>
+										</TR>
+									</TABLE>
+								</TD>
+							</TR>
+							<TR class="title">
+								<TD width="1%"><IMG border="0" src="images/dtbleu.gif"></TD>
+								<TD align="left">Autorisation</TD>
+							</TR>
+							<TR>
+								<TD colspan="2">
+									<TABLE border="0" width="100%" cellspacing="0" cellpadding="0">
+										<TR>
+											<TD width="20%" id="entete">Octroyée entre le <BR>(jj/mm/aaaa)</TD>
+											<TD colspan="4" >
+												<INPUT type="text" size="9" id="txtDateDebut" name="txtDateDebut" value="">
+												 et le
+												 <INPUT type="text" size="9" id="txtDateFin" name="txtDateFin" value="" >
+											</TD>
+										</TR>
+										<TR>
+											<TD width="20%" id="entete">Etat de l'autorisation</TD>
+											<TD width="30%">
+												<SELECT name="lstEtat">
+													<OPTION value="0" selected>------------->Indifférent<------------</OPTION>
+													<OPTION value="10">Valide</OPTION>
+<OPTION value="20">Abrogée</OPTION>
+<OPTION value="30">Suspendue</OPTION>
+<OPTION value="40">Retirée</OPTION>
+<OPTION value="60">Archivée</OPTION>
+												</SELECT>
+											</TD>
+											<TD>&nbsp;&nbsp;&nbsp;</TD>
+											<TD id="entete">Commercialisation</TD>
+											<TD width="30%" align="right">
+												<SELECT name="lstComm">
+													<OPTION value="0" selected>------------->Indifférent<------------</OPTION>
+													<OPTION value="50">Commercialisée</OPTION>
+												</SELECT>
+											</TD>
+										</TR>
+									</TABLE>
+								</TD>
+							</TR>
+							<TR class="title">
+								<TD width="1%"><IMG border="0" src="images/dtbleu.gif"></TD>
+								<TD align="left">Document de référence</TD>
+							</TR>
+							<TR>
+								<TD colspan="2">
+									<TABLE border="0" width="100%" cellspacing="0" cellpadding="0">
+										<TR>
+											<TD width="20%" id="entete">Type de document</TD>
+											<TD width="30%">
+												<SELECT name="lstDoc" onchange="onChange_DocRef(this);">
+													<OPTION value="0" selected>Sélectionnez un document</OPTION>
+													<OPTION value="200000">RCP</OPTION>
+<OPTION value="330000">Notice</OPTION>
+												</SELECT>
+											</TD>
+											<TD>&nbsp;&nbsp;&nbsp;</TD>
+											<TD id="entete">Mis à jour entre le <BR>(jj/mm/aaaa)</TD>
+											<TD width="30%" align="right">
+												<INPUT type="text" size="9" disabled id="txtDebutMAJ" name="txtDebutMAJ" value="">
+												et le
+												<INPUT type="text" size="9" disabled id="txtFinMAJ" name="txtFinMAJ" value="" >
+											</TD>
+										</TR>
+									</TABLE>
+								</TD>
+							</TR>
+							<TR height="15px"><TD colspan="2"></TD></TR>
+							<TR>
+								<TD colspan="2" align="right">
+									<INPUT class="button" type="button" value="OK" onclick="submitForm();">&nbsp;
+									<INPUT class="button" type="button" value="rafraîchir"  onclick="resetForm();">&nbsp;
+								</TD>
+							</TR>
+						</TABLE>
+					</TD>
+				</TR>
+				<TR height="10px"><TD></TD></TR>				
+				
+			</FORM>
+
+
+			</TABLE>
+<BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<TABLE border="0" width="90%" align="center">
+				<TR>
+					<TD style="text-align: justify;"></TD>
+				</TR>
+			</TABLE>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+<BR>
+<TABLE class="menu" cellspacing="0" cellpadding="0" width="100%" align="right">
+	<TR>
+		<TD>
+			<A href="mailto:rsp@afssaps.sante.fr?subject=Répertoire des spécialités pharmaceutiques" onMouseOver="self.status='Contacter le responsable scientifique'; return true" onMouseOut="self.status=''; return true">
+				<IMG border="0" src="images/mail.gif">
+			</A>
+			Adressez vos observations sur le contenu de ce répertoire au responsable scientifique
+		</TD>
+	</TR>
+</TABLE>
+		</TD>
+	</TR>
+	<TR>
+		<!-- <TD height="30px">
+		Site optimisé pour <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=1e1550cb-5e5d-48f5-b02b-20b602228de6&DisplayLang=fr">
+		<IMG src="images/ie.gif" border="0" style="text-align: bottom;">
+		Internet Explorer</a>
+	 5.0 et
+	 <A href="http://www.telechargement.netscape.fr/telechargement/">
+	 	<IMG src="images/netscape.gif" border="0" style="text-align: bottom;">
+	 </A> 6.0
+		</TD> -->
+
+		<TD height="30px">
+		Site optimisé pour <href="http://www.microsoft.com/downloads/details.aspx?FamilyID=1e1550cb-5e5d-48f5-b02b-20b602228de6&DisplayLang=fr">
+		<IMG src="images/ie.gif" border="0" style="text-align: bottom;">
+		Internet Explorer
+	 5.0 et
+		<href="http://www.telechargement.netscape.fr/telechargement/">
+	 	<IMG src="images/netscape.gif" border="0" style="text-align: bottom;">
+	 6.0
+		</TD>
+
+	</TR>
+</TABLE>
+<BR>
+<CENTER>
+</CENTER>
+</BODY>
+</HTML>

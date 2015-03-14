@@ -1,0 +1,16 @@
+from rst_mod import *
+
+
+txt = '''
++--------------------------------+-------------------------------+
+| Lorem ipsum lorem ipsum        |    Second Column              |
+| Lorem ipsum lorem ipsum Lorem  |                               | 
++--------------------------------+-------------------------------+
+| Lorem ipsum lorem ipsum        | Lorem ipsum lorem ipsum Lorem | 
+| Lorem ipsum lore               | Lorem ipsum lorem ipsum       | 
+|                                | Lorem i                       |
+|                                |                               |
++--------------------------------+-------------------------------+
+'''
+
+my_rst = RstDocument(text=txt)

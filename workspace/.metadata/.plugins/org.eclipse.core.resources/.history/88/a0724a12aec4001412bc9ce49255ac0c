@@ -1,0 +1,49 @@
+from kivy.app import App
+from kivy.uix.rst import RstDocument
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.button import Button
+
+
+class MyBoxLayout(BoxLayout):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        mylayout = BoxLayout()
+        mybutton1 = Button(text='First Rst Table')
+        mybutton2 = Button(text='Second Rst Table')
+        mybutton3 = Button(text='Third Rst Table')
+        mytable1 = RstDocument(text='''
++--------------------------------+-------------------------------+
+| Animal indisponible            |                               |
+| Circonstances suspectes ou non |                               | 
++--------------------------------+-------------------------------+
+| Animal mort Circonstances      | Faire acheminer l'encéphale à | 
+| suspectes ou non               | un laboratoire agréé pour     | 
+|                                | analyse                       |
+|                                |                               |
++--------------------------------+-------------------------------+
+
+        ''')
+        mytable2 = RstDocument(text='''
++--------------------------------+-------------------------------+
+| Animal indisponible            |                               |
+| Circonstances suspectes ou non |                               | 
++--------------------------------+-------------------------------+
+| Animal mort Circonstances      | Faire acheminer l'encéphale à | 
+| suspectes ou non               | un laboratoire agréé pour     | 
+|                                | analyse                       |
+|                                |                               |
++--------------------------------+-------------------------------+
+
+        ''')
+        mytable3 = RstDocument(text='''
++--------------------------------+-------------------------------+
+| Animal indisponible            |                               |
+| Circonstances suspectes ou non |                               | 
++--------------------------------+-------------------------------+
+| Animal mort Circonstances      | Faire acheminer l'encéphale à | 
+| suspectes ou non               | un laboratoire agréé pour     | 
+|                                | analyse                       |
+|                                |                               |
++--------------------------------+-------------------------------+
+
+        ''')

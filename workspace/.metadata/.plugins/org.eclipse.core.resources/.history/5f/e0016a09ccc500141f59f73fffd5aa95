@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title_html %}
+	Hello world title
+{% endblock %}
+
+{% block h1 %}
+	{{ bloc.super }}Hello World Django
+{% endblock %}
+
+{% block article_content %}
+Hello world !
+{% endblock %}
+
+
+
+<html>
+	<head>
+		<title>
+		Hello World Title
+		</title>
+	</head>
+	<body>
+		<h1>
+			<span> {{ my_hello | capfirst }} </span> Django
+		</h1>
+		<article>
+			<span>
+			{% if years < 10 %}
+			You are a children
+			{% elif years < 18 %}
+			You are a teenager
+			{% else %}
+			You are an adult!
+			{% endif %}
+			</span>
+			<span>
+			<ul>
+			{% for city in array_city %}
+				<li>
+				{{ city }}
+				</li>
+			{% endfor %}
+			</ul>
+			
+			<a href="{% url 'public_connection' %}">Connection</a>
+		</article>
+	</body>
+</html>

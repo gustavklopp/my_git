@@ -1,0 +1,15 @@
+# -*- Coding: utf-8 -*-
+from django.shortcuts import render
+
+''' 
+View for index page.
+'''
+
+def page(request):
+    my_variable = "Hello World!"
+    years_old = 15
+    array_city_capital = ["Paris", "London", "Washington"]
+    return render(request, 'en/public/index.html', 
+                  {"my_hello":my_variable, "years":years_old, "array_city":array_city_capital})
+    
+    

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;download_ansm_all/convert_to_text/split_string_test.py&apos;" deleteContents="false" description="Delete resource &apos;download_ansm_all/convert_to_text/split_string_test.py&apos;" element1="/download_ansm_all/convert_to_text/split_string_test.py" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1423908396622"/>
+</session>

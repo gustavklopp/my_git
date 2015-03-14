@@ -1,0 +1,14 @@
+<html>
+	<head>
+		<title>
+		Hello World Title
+		</title>
+	</head>
+	<body>
+		<article>
+			Hello World !
+			<br />
+			<a href="{% 'public_index' %}">index</a>
+		</article>
+	</body>
+</html>

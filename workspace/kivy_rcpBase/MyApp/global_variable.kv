@@ -1,0 +1,35 @@
+<FirstScreen>:
+	obj_input: input_box
+	obj_label: label_box
+	obj_okay: okay_btn
+	BoxLayout:
+		orientation: 'vertical'
+		TextInput:
+			id: input_box
+			size_hint_y: None
+			height: "40dp"
+			multiline: False
+		Label:
+			id: label_box
+		Button:
+			id: okay_btn
+			text: "Okay"
+			on_press: root.buttonClicked(); root.manager.get_screen('secondscreen').update_text(root.obj_label.text)	
+		Button:
+			text: "Go To Second Screen"
+			on_press: root.manager.current = 'secondscreen'
+
+<SecondScreen>:
+	obj_input1_box: input1_box
+	BoxLayout:
+		orientation: 'vertical'
+		Label: 
+			text: 'Input from First Screen'
+		Label:
+			id: input1_box
+		Button:
+			text: "Go To First Screen"
+			on_press: root.manager.current = 'firstcreen'
+			
+
+	

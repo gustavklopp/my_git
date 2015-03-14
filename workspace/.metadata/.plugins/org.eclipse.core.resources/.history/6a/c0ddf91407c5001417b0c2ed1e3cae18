@@ -1,0 +1,58 @@
+from kivy.app import App
+from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.scrollview import ScrollView
+from kivy.lang import Builder
+from kivy.uix.textinput import TextInput
+
+Builder.load_string("""
+<MainLayout>:
+    ScrollView:
+        FloatLayout:
+            size_hint_y: None
+            height: root.height  + tti1.height - tti1.line_height * 3/2
+            TabTextInput:
+                id: tti1
+                font_size: 25
+                size_hint_y: None
+                height: self.line_height*3/2
+                y: root.height - self.line_height * 3/2
+    Button:
+        size_hint_y: .5
+        text: 'Keyboard'
+        font_size: 120
+        color: 0,0,0,1
+""")
+
+class TabTextInput(TextInput):
+
+    def __init__(self, *args, **kwargs):
+        super(TabTextInput, self).__init__(*args, **kwargs)
+
+    def keyboard_on_key_down(self, window, keycode, text, modifiers):
+        key, key_str = keycode
+        if key is not 8:
+            if key is 13 or self.cursor_col == 20:
+                self.insert_text('\n')
+                self.add_line()
+                return False
+        else:
+            if self.cursor_col==0 and self.cursor_row>0:
+                self.remove_line()
+        return super(TabTextInput, self).keyboard_on_key_down(window, keycode, text, modifiers)
+
+    def add_line(self):
+        self.height += self.line_height
+
+    def remove_line(self):
+        self.height -= self.line_height
+
+class MainLayout(FloatLayout):
+    pass
+
+class TestApp(App):
+    def build(self):
+        return MainLayout()
+
+
+if __name__ == '__main__':
+    TestApp().run()

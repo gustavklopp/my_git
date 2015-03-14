@@ -1,0 +1,10 @@
+from django.conf.urls import patterns, include, url
+# from django.contrib import admin
+
+urlpatterns = patterns('',
+    # Examples:
+    url(r'^$', 'RCP_website.views.index.page'),
+    url(r'^index$', 'RCP_website.views.index.page'),
+
+#     url(r'^admin/', include(admin.site.urls)),
+)

@@ -1,0 +1,58 @@
+from kivy.app import App
+from kivy.uix.gridlayout import GridLayout
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.label import Label
+
+
+class MyBoxLayout(BoxLayout):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.orientation = 'vertical'
+        mytable1 = Label(text='''
++--------------------------------+-------------------------------+
+| Lorem ipsum lorem ipsum        |                               |
+| Lorem ipsum lorem ipsum Lorem  |                               | 
++--------------------------------+-------------------------------+
+| Lorem ipsum lorem ipsum        | Lorem ipsum lorem ipsum Lorem | 
+| Lorem ipsum lore               | Lorem ipsum lorem ipsum       | 
+|                                | Lorem i                       |
+|                                |                               |
++--------------------------------+-------------------------------+
+''')
+        mygrid1 = GridLayout(cols=1)
+        mygrid1.add_widget(mytable1)
+        mytable2 = Label(text='''
++---------+--------------------------------+-------------------------------+
+| Lorem i | Lorem Ipsum Lorem Ipsum Lorem  |      Lorem Ipsum Lorem        |
+|         | Lorem Ipsum Lorem Ipsum Lorem  |                               |
+|         | Lorem Ipsum Lorem Ipsum Lorem  |                               |
+|         | Lorem Ipsum Lorem Ipsum Lorem  |                               |
+|         | Lorem Ipsum Lorem Ipsum Lorem  |                               |
+|         | Lorem Ipsum Lorem Ipsum Lorem  |                               |
++=========+================================+===============================+
+| 1 row   | Lorem Ipsum Lorem Ipsum Lo     | Lorem Ipsum Lorem Ipsum Lorem |
+|         | Lorem Ipsum Lorem Ipsum Lo     | Lorem Ipsum Lorem             |
+|         | Lorem Ips                      |                               |
++---------+--------------------------------+-------------------------------+
+| 2 row   | Lorem Ipsum Lorem Ipsum Lo     | Lorem Ipsum Lorem Ips         |
+|         | Lorem Ipsum Lorem Ips          | Lorem Ipsum Lore              |
+|         | Lorem Ipsum Lorem Ipsum Lorem  |                               |
+|         | Lorem Ipsum Lorem Ipsum        |                               |
++---------+--------------------------------+-------------------------------+
+| 3 row   | Lorem Ipsum Lorem Ipsum Lo     | Lorem Ipsum Lorem Ipsum Lorem |
+|         | Lorem Ipsum Lorem Ipsum        | Lorem Ipsum Lorem Ipsum Lorem |
+|         | Lorem Ipsum Lorem Ipsum        | Lorem Ipsum Lo                |
+|         | Lorem Ipsum Lorem Ipsum        |                               |
++---------+--------------------------------+-------------------------------+
+''')
+        mygrid2 = GridLayout()
+        mygrid2.add_widget(mytable2)
+        self.add_widget(mygrid1)
+        self.add_widget(mygrid2)
+
+class Simple_TableApp(App):
+    def build(self):
+        return MyBoxLayout()
+
+if __name__ == "__main__":
+    Simple_TableApp().run()

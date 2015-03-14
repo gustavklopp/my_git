@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;download_rcp/html_files/rcp_mod/0047821.html&apos; to &apos;00100000.html&apos;" description="Rename resource &apos;0047821.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="html_files/rcp_mod/0047821.html" name="00100000.html" stamp="1425719482478" updateReferences="true"/>
+</session>

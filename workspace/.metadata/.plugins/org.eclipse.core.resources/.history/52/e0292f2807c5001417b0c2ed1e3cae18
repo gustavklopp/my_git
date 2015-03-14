@@ -1,0 +1,37 @@
+from kivy.app import App
+from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.scrollview import ScrollView
+from kivy.lang import Builder
+from kivy.uix.textinput import TextInput
+
+Builder.load_string("""
+<MainLayout>:
+    ScrollView:
+        FloatLayout:
+            size_hint_y: None
+            height: root.height  + tti1.height - tti1.line_height * 3/2
+            TabTextInput:
+                id: tti1
+                font_size: 25
+                size_hint_y: None
+                height: self.line_height*3/2
+                y: root.height - self.line_height * 3/2
+    Button:
+        size_hint_y: .5
+        text: 'Keyboard'
+        font_size: 120
+        color: 0,0,0,1
+""")
+
+
+
+class MainLayout(FloatLayout):
+    pass
+
+class TestApp(App):
+    def build(self):
+        return MainLayout()
+
+
+if __name__ == '__main__':
+    TestApp().run()

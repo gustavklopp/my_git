@@ -1,0 +1,56 @@
+from kivy.app import App
+from kivy.uix.rst import RstDocument
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.button import Button
+
+
+class MyBoxLayout(BoxLayout):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.orientation = 'vertical'
+        mybutton1 = Button(text='First Rst Table')
+        mytable1 = RstDocument(text='''
++--------------------------------+-------------------------------+
+| Lorem ipsum lorem ipsum        |                               |
+| Lorem ipsum lorem ipsum Lorem  |                               | 
++--------------------------------+-------------------------------+
+| Lorem ipsum lorem ipsum        | Lorem ipsum lorem ipsum Lorem | 
+| Lorem ipsum lore               | Lorem ipsum lorem ipsum       | 
+|                                | Lorem i                       |
+|                                |                               |
++--------------------------------+-------------------------------+
+
+TABLE 2 :
+
++---------+--------------------------------+-------------------------------+
+| Lorem i | Lorem Ipsum Lorem Ipsum Lorem  |      Lorem Ipsum Lorem        |
+|         | Lorem Ipsum Lorem Ipsum Lorem  |                               |
+|         | Lorem Ipsum Lorem Ipsum Lorem  |                               |
+|         | Lorem Ipsum Lorem Ipsum Lorem  |                               |
+|         | Lorem Ipsum Lorem Ipsum Lorem  |                               |
+|         | Lorem Ipsum Lorem Ipsum Lorem  |                               |
++=========+================================+===============================+
+| 1. I    | Lorem Ipsum Lorem Ipsum Lo     | Lorem Ipsum Lorem Ipsum Lorem |
+|         | Lorem Ipsum Lorem Ipsum Lo     | Lorem Ipsum Lorem             |
+|         | Lorem Ips                      |                               |
++---------+--------------------------------+-------------------------------+
+| 2. II   | Lorem Ipsum Lorem Ipsum Lo     | Lorem Ipsum Lorem Ips         |
+|         | Lorem Ipsum Lorem Ips          | Lorem Ipsum Lore              |
+|         | Lorem Ipsum Lorem Ipsum Lorem  |                               |
+|         | Lorem Ipsum Lorem Ipsum        |                               |
++---------+--------------------------------+-------------------------------+
+| 3. III  | Lorem Ipsum Lorem Ipsum Lo     | Lorem Ipsum Lorem Ipsum Lorem |
+|         | Lorem Ipsum Lorem Ipsum        | Lorem Ipsum Lorem Ipsum Lorem |
+|         | Lorem Ipsum Lorem Ipsum        | Lorem Ipsum Lo                |
+|         | Lorem Ipsum Lorem Ipsum        |                               |
++---------+--------------------------------+-------------------------------+
+        ''')
+
+        self.add_widget(mytable1)
+
+class Simple_TableApp(App):
+    def build(self):
+        return MyBoxLayout()
+
+if __name__ == "__main__":
+    Simple_TableApp().run()

@@ -1,0 +1,26 @@
+from kivy.app import App
+from kivy.uix.label import Label
+from kivy.uix.gridlayout import GridLayout
+from kivy.uix.floatlayout import FloatLayout
+
+
+class MyApp(App):
+    def build(self):
+        root = FloatLayout()
+
+        b = GridLayout(
+            cols=1)
+        root.add_widget(b)
+
+        l = Label(text='word ' * 100)
+        l.size_hint = (None, None)
+        l.text_size = (l.width, l.height)
+        l.height = l.texture_size[1]
+        l.width = l.textre_size[0]
+        b.add_widget(l)
+
+        return root
+
+
+if __name__ == '__main__':
+    MyApp().run()

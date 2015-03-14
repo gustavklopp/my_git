@@ -1,0 +1,32 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+from kivy.uix.popup import Popup
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.label import Label
+from kivy.uix.button import Button
+from kivy.app import App
+from kivy.lang import Builder
+
+from functools import partial 
+
+class TestApp(App):
+    def build(self):
+        return Button(on_press=partial(self.popup_display, "title", "WORD_LONG "*80))
+
+    def popup_display(self, title, message, widget):
+        btnclose = Button(text='Close me', size_hint_y=None, height=50)
+        l = Label(text=message)
+        l.bind(size=lambda s, w: print('s :', s, ' and w :', w))
+        l.bind(size=lambda s, w: s.setter('text_size')(s, w))
+
+        content = BoxLayout(orientation='vertical')
+        content.add_widget(l)
+        content.add_widget(btnclose)
+        popup = Popup(content=content, title=title, size_hint=(None, None), size=(300, 300), auto_dismiss=False)
+        btnclose.bind(on_release=popup.dismiss)
+
+        popup.open()
+
+if __name__ == '__main__':
+    TestApp().run()

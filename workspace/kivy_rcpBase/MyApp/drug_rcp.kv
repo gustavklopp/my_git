@@ -1,0 +1,256 @@
+#: import main main
+#: import ListAdapter kivy.adapters.listadapter.ListAdapter
+
+
+<SearchDrugScreen>:
+	search_input: search_box
+	search_results: search_results_list
+	dci_search: dci_checkbox
+	BoxLayout:
+		orientation: 'vertical'
+		Label:
+			size_hint_y: 0.1
+			text: "CHOIX DU MEDICAMENT"
+		BoxLayout:
+			size_hint_y: 0.1
+			CheckBox:
+				group: "g"
+				active: True
+			Label: 
+				text: "SPECIALITE"
+		BoxLayout: 
+			size_hint_y: 0.1
+			CheckBox:
+				group: "g"
+				id: dci_checkbox
+			Label: 
+				text: "DCI"
+		TextInput:
+			id: search_box
+			size_hint_y: None
+			height: "40dp"
+			focus: True
+			multiline: False
+			on_text: root.search_drug()
+		ListView:
+			id: search_results_list
+			size_hint_y: 0.6
+			adapter:
+				ListAdapter(data=[], cls=main.DrugButton)
+		Button:
+			text: "AFFICHER FICHE RCP"
+			size_hint_y: 0.1
+			on_press: root.manager.current = 'showrcp'
+			
+<ShowRCPScreen>:
+	showrcp_chosen_label: showrcp_chosen
+	BoxLayout:
+		orientation: 'vertical'
+		chosen_drug: ""
+		Button:
+			size_hint_y: None
+			height: "30dp"
+			text: 'RETOUR ACCUEIL'
+			on_press: root.manager.current = 'searchdrug'
+		ScrollView:
+			do_scroll_x: False
+			GridLayout:
+				height: self.minimum_height
+				cols: 1
+				size_hint_y: None
+				Label:
+					id: showrcp_chosen
+					size_hint_y: None
+					height: "45dp"
+				Button:
+					id: date_modif
+					text: "Date de Modification"
+					height: "45dp"
+					size_hint_y: None
+					on_press: root.manager.current = 'showrcpdetail'; root.manager.get_screen('showrcpdetail').display_item(self.text)
+				Button:
+					id: composition
+					text: "Composition"
+					height: "45dp"
+					size_hint_y: None
+					on_press: root.manager.current = 'showrcpdetail'; root.manager.get_screen('showrcpdetail').display_item(self.text)
+				Button:
+					id: dci_name
+					text: "Nom en DCI"
+					height: "45dp"
+					size_hint_y: None
+					on_press: root.manager.current = 'showrcpdetail'; root.manager.get_screen('showrcpdetail').display_item(self.text)
+				Button:
+					id: forme
+					text: "Forme"
+					height: "45dp"
+					size_hint_y: None
+					on_press: root.manager.current = 'showrcpdetail'; root.manager.get_screen('showrcpdetail').display_item(self.text)
+				Button:
+					id: indication
+					text: "Indication"
+					height: "45dp"
+					size_hint_y: None
+					on_press: root.manager.current = 'showrcpdetail'; root.manager.get_screen('showrcpdetail').display_item(self.text)
+				Button:
+					id: posologie
+					text: "Posologie"
+					height: "45dp"
+					size_hint_y: None
+					on_press: root.manager.current = 'showrcpdetail'; root.manager.get_screen('showrcpdetail').display_item(self.text)
+				Button:
+					id: contre_indic
+					text: "Contre-indications"
+					height: "45dp"
+					size_hint_y: None
+					on_press: root.manager.current = 'showrcpdetail'; root.manager.get_screen('showrcpdetail').display_item(self.text)
+				Button:
+					id: interaction
+					text: "Interactions"
+					height: "45dp"
+					size_hint_y: None
+					on_press: root.manager.current = 'showrcpdetail'; root.manager.get_screen('showrcpdetail').display_item(self.text)
+				Button:
+					id: grossesse_all
+					text: "Grossesse et Allaitement"
+					height: "45dp"
+					size_hint_y: None
+					on_press: root.manager.current = 'showrcpdetail'; root.manager.get_screen('showrcpdetail').display_item(self.text)
+				Button:
+					id: automobile
+					text: "Précautions conduite auto"
+					height: "45dp"
+					size_hint_y: None
+					on_press: root.manager.current = 'showrcpdetail'; root.manager.get_screen('showrcpdetail').display_item(self.text)
+				Button:
+					id: effets_indesir
+					text: "Effets indésirables"
+					height: "45dp"
+					size_hint_y: None
+					on_press: root.manager.current = 'showrcpdetail'; root.manager.get_screen('showrcpdetail').display_item(self.text)
+				Button:
+					id: surdosage
+					text: "Surdosage"
+					height: "45dp"
+					size_hint_y: None
+					on_press: root.manager.current = 'showrcpdetail'; root.manager.get_screen('showrcpdetail').display_item(self.text)
+				Button:
+					id: pharmacodynamie
+					text: "Pharmacodynamie"
+					height: "45dp"
+					size_hint_y: None
+					on_press: root.manager.current = 'showrcpdetail'; root.manager.get_screen('showrcpdetail').display_item(self.text)
+				Button:
+					id: pharmacocinetique
+					text: "Pharmacocinétique"
+					height: "45dp"
+					size_hint_y: None
+					on_press: root.manager.current = 'showrcpdetail'; root.manager.get_screen('showrcpdetail').display_item(self.text)
+				Button:
+					id: pre_clinique
+					text: "Etudes Pré-cliniques"
+					height: "45dp"
+					size_hint_y: None
+					on_press: root.manager.current = 'showrcpdetail'; root.manager.get_screen('showrcpdetail').display_item(self.text)
+				Button:
+					id: excipients
+					text: "Excipients"
+					height: "45dp"
+					size_hint_y: None
+					on_press: root.manager.current = 'showrcpdetail'; root.manager.get_screen('showrcpdetail').display_item(self.text)
+				Button:
+					id: conservation
+					text: "Conservation"
+					height: "45dp"
+					size_hint_y: None
+					on_press: root.manager.current = 'showrcpdetail'; root.manager.get_screen('showrcpdetail').display_item(self.text)
+				Button:
+					id: pre_conservation
+					text: "Pré-consevation"
+					height: "45dp"
+					size_hint_y: None
+					on_press: root.manager.current = 'showrcpdetail'; root.manager.get_screen('showrcpdetail').display_item(self.text)
+				Button:
+					id: emballage
+					text: "Emballage"
+					height: "45dp"
+					size_hint_y: None
+					on_press: root.manager.current = 'showrcpdetail'; root.manager.get_screen('showrcpdetail').display_item(self.text)
+				Button:
+					id: elimin
+					text: "Elimination"
+					height: "45dp"
+					size_hint_y: None
+					on_press: root.manager.current = 'showrcpdetail'; root.manager.get_screen('showrcpdetail').display_item(self.text)
+				Button:
+					id: titulaire_amm
+					text: "Titulaire de l\'AMM"
+					height: "45dp"
+					size_hint_y: None
+					on_press: root.manager.current = 'showrcpdetail'; root.manager.get_screen('showrcpdetail').display_item(self.text)
+				Button:
+					id: presentation
+					text: "Présentation"
+					height: "45dp"
+					size_hint_y: None
+					on_press: root.manager.current = 'showrcpdetail'; root.manager.get_screen('showrcpdetail').display_item(self.text)
+				Button:
+					id: premiere_autoris
+					text: "Date de Première autorisation"
+					height: "45dp"
+					size_hint_y: None
+					on_press: root.manager.current = 'showrcpdetail'; root.manager.get_screen('showrcpdetail').display_item(self.text)
+				Button:
+					id: date_revision
+					text: "Date de Révision"
+					height: "45dp"
+					size_hint_y: None
+					on_press: root.manager.current = 'showrcpdetail'; root.manager.get_screen('showrcpdetail').display_item(self.text)
+				Button:
+					id: dosimetrie
+					text: "Dosimétrie"
+					height: "45dp"
+					size_hint_y: None
+					on_press: root.manager.current = 'showrcpdetail'; root.manager.get_screen('showrcpdetail').display_item(self.text)
+				Button:
+					id: radiopharma
+					text: "Radiopharmaceutique"
+					height: "45dp"
+					size_hint_y: None
+					on_press: root.manager.current = 'showrcpdetail'; root.manager.get_screen('showrcpdetail').display_item(self.text)
+				Button:
+					id: prescription
+					text: "Conditions de Prescription"
+					height: "45dp"
+					size_hint_y: None
+					on_press: root.manager.current = 'showrcpdetail'; root.manager.get_screen('showrcpdetail').display_item(self.text)
+				
+
+<DrugButton>:
+	chosen_drug: drug_button
+	id: drug_button
+	on_press: app.root.get_screen('showrcp').update_text(self.chosen_drug.text); app.root.get_screen('showrcpdetail').update_text(self.chosen_drug.text)
+	
+<ShowRCPDetailScreen>:
+	showrcpdetail_chosen_label: showrcpdetail_chosen
+	rcpdetail_grid: rcpdetail_grid
+	BoxLayout:
+		orientation: 'vertical'
+		Button:
+			size_hint_y: None
+			height: "30dp"
+			text: 'RETOUR ACCUEIL'
+			on_press: root.manager.current = 'searchdrug'
+		Button:
+			size_hint_y: None
+			height: "30dp"
+			text: 'RETOUR MEDICAMENT'
+			on_press: root.manager.current = 'showrcp'
+		Label:
+			id: showrcpdetail_chosen
+			height: "30dp"
+			size_hint_y: None
+		RcpDetail_GridLayout:
+			id: rcpdetail_grid
+	
+

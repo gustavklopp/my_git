@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;kivy_rcpBase/rst_test/rst_mod.py&apos; to &apos;rst_mod_WORKING.py&apos;" description="Rename resource &apos;rst_mod.py&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="rst_test/rst_mod.py" name="rst_mod_WORKING.py" stamp="1425750146536" updateReferences="true"/>
+</session>

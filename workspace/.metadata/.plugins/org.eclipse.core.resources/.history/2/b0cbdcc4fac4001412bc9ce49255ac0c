@@ -1,0 +1,32 @@
+from rst_mod import *
+from kivy.app import App
+
+txt = '''
+
++--------------------------------+-------------------------------+
+|    Lorem ipsum lorem ipsum     |Lorem ipsum lorem ipsum Lorem  | 
+|    Lorem ipsum lore            |Lorem ipsum lorem ipsum        |
+|                                |                               |
+|                                |Lorem i                        |
+|                                |                               |
++--------------------------------+-------------------------------+
+| Lorem ipsum lorem ipsum        |Lorem ipsum lorem ipsum Lorem  | 
+| Lorem ipsum lore               |                               | 
+|                                |Lorem i                        |
+|                                |                               |
++--------------------------------+-------------------------------+
+|Lorem ipsum lorem ipsum         |Second Column                  |
+|Lorem ipsum lorem ipsum Lorem   |                               | 
++--------------------------------+-------------------------------+
+|Lorem ipsum lorem ipsum         |Second Column                  |
+|Lorem ipsum lorem ipsum Lorem   |                               | 
++--------------------------------+-------------------------------+
+'''
+
+my_rst = RstDocument(text=txt)
+
+class MyApp(App):
+    def build(self):
+        return RstDocument(text=txt)
+
+MyApp().run()
