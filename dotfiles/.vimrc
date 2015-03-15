@@ -24,7 +24,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'kien/ctrlp.vim' "Ctr+P to search for files
 NeoBundle 'rking/ag.vim'
-NeoBundle 'tpope/vim-commentary'
+NeoBundle 'tpope/vim-commentary' "to see help, ':h commentary
 NeoBundle 'xolox/vim-misc' "to manage session
 NeoBundle 'xolox/vim-session' "to manage session
 NeoBundle 'Raimondi/delimitMate' "Closing autocompletion

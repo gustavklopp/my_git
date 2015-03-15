@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>
+	DICOMEDOC
+</title>
+</head>
+<body>
+<h1>
+	CHOIX DCI/SPECIALITE
+</h1>
+<form method=get action="{% url 'dci_page' %}">
+	Choix du médicament :<br> 
+	<input type="radio" name="search_type" value="dci" checked>DCI
+	<br>
+	<input type="radio" name="search_type" value="spec">Spécialité
+	<br>
+	Entrer le nom recherché:<br>
+	<input type="text" name="search_text" value="">
+	<input type="submit" value="Rechercher">
+</form>
+</body>
