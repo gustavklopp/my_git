@@ -22,13 +22,15 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Note: You don't set neobundle setting in
  " .gvimrc!
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'kien/ctrlp.vim' "Ctr+P to search for files
 NeoBundle 'rking/ag.vim'
 NeoBundle 'tpope/vim-commentary'
-NeoBundle 'xolox/vim-misc'
-NeoBundle 'xolox/vim-session'
+NeoBundle 'xolox/vim-misc' "to manage session
+NeoBundle 'xolox/vim-session' "to manage session
+NeoBundle 'Raimondi/delimitMate' "Closing autocompletion
 
 call neobundle#end()
+
 
 
 " Required:
@@ -40,20 +42,25 @@ filetype plugin indent on
 "install them.
 NeoBundleCheck
 
-
+" ColorScheme :
 set  t_Co=256
-
 "colorscheme github
 colorscheme desert
+
+" display line number
 set nu
-"Open NERDTree automatically
-"save session on quitting Vim
-"autocmd VimLeave * NERDTreeClose
 
-" Restore session on starting Vim
-
-"autocmd VimEnter * NERDTree
-
-" Remap NERDTree to ',ne' in normal  mode
+" shortcut for NERDTree
 let mapleader = ","
 nmap <leader>ne :NERDTree<cr>
+
+" Setting for good Python vizualization :
+syntax on
+set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅
+set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\
+			\ [%l/%L\ (%p%%)
+filetype plugin indent on
+au FileType py set autoindent
+au FileType py set smartindent
+au FileType py set textwidth=79 " PEP-8 Friendly
+
