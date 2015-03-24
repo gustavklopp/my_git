@@ -1,0 +1,4 @@
+# To make the laptop EasyNote hibernate, by GUI:
+1) create an entry with the Main Menu Editor program
+2) the entry has as propriety: 
+gksudo /usr/sbin/pm-hibernate
