@@ -19,5 +19,5 @@ MiscScrollAlternateScreen=TRUE
 ColorForeground=#000000
 ColorBackground=#ffffff
 ColorPalette=#000000000000;#aaaa00000000;#0000aaaa0000;#aaaa55550000;#00000000aaaa;#aaaa0000aaaa;#0000aaaaaaaa;#aaaaaaaaaaaa;#555555555555;#ffff55555555;#5555ffff5555;#aaaaaaaa1fa8;#55555555ffff;#ffff5555ffff;#5555ffffffff;#ffffffffffff
-ColorCursor=#97ab97ab97ab
+ColorCursor=#d1ebd1ebd1eb
 
