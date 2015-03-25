@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 # created via the 'manage.py inspectdb'
 class RcpTable(models.Model):
-    rcp_id = models.IntegerField(blank=True, null=True)
+    rcp_id = models.IntegerField(primary_key=True)
     spec_name = models.TextField(blank=True)  # This field type is a guess.
     date_de_modification = models.DateField(db_column='Date de Modification', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     composition = models.TextField(db_column='Composition', blank=True)  # Field name made lowercase. This field type is a guess.

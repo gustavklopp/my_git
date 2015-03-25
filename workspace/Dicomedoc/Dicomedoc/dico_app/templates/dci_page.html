@@ -1,39 +1,108 @@
 <html>
 <head>
+{% load static %}
+<link href="{% static "css/style.css" %}" rel="stylesheet" type="text/css" />
 <title>
 	DICOMEDOC
 </title>
 </head>
 <body>
 <h1>
-{{ name }} 
+{{ drug_rcp.spec_name }} 
 </h1>
+{% load markup_tags %}
+{% filter apply_markup:'restructuredtext' %}
+
++---------+--------------------------------+-------------------------------+
+| Gravité | Nature du contact avec un      |     Traitement recommandé     |
+|         | animal sauvage(a)ou domestique |                               |
+|         | présumé enragé, ou dont la     |                               |
+|         | rage a été confirmée ou encore |                               |
+|         | un animal qui ne peut pas être |                               |
+|         | placé en observation           |                               |
++=========+================================+===============================+
+| I       | Contact ou alimentation de     | Aucun, si une anamnèse fiable |
+|         | l'animal. Léchage sur peau     | peut être obtenue.            |
+|         | intacte.                       |                               |
++---------+--------------------------------+-------------------------------+
+| II      | Peau découverte mordillée.     | Administrer le vaccin         |
+|         | Griffures bénignes ou          | immédiatement(b)              |
+|         | excoriations sans saignement.  |                               |
+|         | Léchage sur peau érodée        |                               |
++---------+--------------------------------+-------------------------------+
+| III     | Morsure(s) ou griffure(s)      | Administrer immédiatement des |
+|         | ayant traversé la peau.        | immunoglobulines et le vaccin |
+|         | Contamination des muqueuses    | antirabique(b)                |
+|         | par la salive (léchage).       |                               |
++---------+--------------------------------+-------------------------------+
+
++--------------------------------+--------------------------------+
+|  Vaccination de moins de 5ans  |     2injections: J0 et J3      |
+|  (par un vaccin rabique de     |                                |
+|  culture cellulaire)           |                                |
++================================+================================+
+| Vaccination de plus de 5ans ou | 5injections: à J0, J3, J7, J14 |
+| vaccination incomplète         | et J28, avec administration    |
+|                                | d'IGR si nécessaire            |
++--------------------------------+--------------------------------+
+{% endfilter %}
+<p class='title'>Date de Modification</p>
+{{ drug_rcp.date_de_modification|date:"d/m/Y"|apply_markup:"restructuredtext" }}
+<p class='title'>Composition</p>
+{{ drug_rcp.composition|apply_markup:"restructuredtext" }}
+<p class='title'>Forme</p>
+{{ drug_rcp.forme|apply_markup:"restructuredtext" }}
 <p class='title'>Indication</p>
-{{ drug_found.indication}}
+{{ drug_rcp.indication|apply_markup:"restructuredtext" }}
 <p class='title'>Posologie</p>
-{{ indication}}
-<p class='title'>Forme et Présentation</p>
-{{ indication}}
-<p class='title'>Indication</p>
-{{ indication}}
-<p class='title'>Indication</p>
-{{ indication}}
-<p class='title'>Indication</p>
-{{ indication}}
-<p class='title'>Indication</p>
-{{ indication}}
-<p class='title'>Indication</p>
-{{ indication}}
-<p class='title'>Indication</p>
-{{ indication}}
-<p class='title'>Indication</p>
-{{ indication}}
-<p class='title'>Indication</p>
-{{ indication}}
-<p class='title'>Indication</p>
-{{ indication}}
-<p class='title'>Indication</p>
-{{ indication}}
-<p class='title'>Indication</p>
-{{ indication}}
+{{ drug_rcp.posologie|apply_markup:"restructuredtext" }}
+<p class='title'>Contre-indications</p>
+{{ drug_rcp.contre_indications|apply_markup:"restructuredtext" }}
+<p class='title'>Interactions</p>
+{{ drug_rcp.interactions|apply_markup:"restructuredtext" }}
+<p class='title'>Grossesse et Allaitement</p>
+{{ drug_rcp.grossesse_et_allaitement|apply_markup:"restructuredtext" }}
+<p class='title'>Précautions conduite auto</p>
+{{ drug_rcp.précautions_conduite_auto|apply_markup:"restructuredtext" }}
+<p class='title'>Effets indésirables</p>
+{{ drug_rcp.effets_indésirables|apply_markup:"restructuredtext" }}
+<p class='title'>Surdosage</p>
+{{ drug_rcp.surdosage|apply_markup:"restructuredtext" }}
+<p class='title'>Pharmacodynamie</p>
+{{ drug_rcp.pharmacodynamie|apply_markup:"restructuredtext" }}
+<p class='title'>Pharmacocinétique</p>
+{{ drug_rcp.pharmacocinétique|apply_markup:"restructuredtext" }}
+<p class='title'>Etudes Pré-cliniques</p>
+{{ drug_rcp.etudes_pré_cliniques|apply_markup:"restructuredtext" }}
+<p class='title'>Excipients</p>
+{{ drug_rcp.excipients|apply_markup:"restructuredtext" }}
+<p class='title'>Conservation</p>
+{{ drug_rcp.conservation|apply_markup:"restructuredtext" }}
+<p class='title'>Pré-conservation</p>
+{{ drug_rcp.pré_conservation|apply_markup:"restructuredtext" }}
+<p class='title'>Emballage</p>
+{{ drug_rcp.emballage|apply_markup:"restructuredtext" }}
+<p class='title'>Elimination</p>
+{{ drug_rcp.elimination|apply_markup:"restructuredtext" }}
+<p class='title'>Titulaire de l'AMM</p>
+{{ drug_rcp.titulaire_de_l_amm|apply_markup:"restructuredtext" }}
+<p class='title'>Présentation</p>
+{{ drug_rcp.présentation|apply_markup:"restructuredtext" }}
+<p class='title'>Date de Première autorisation</p>
+{{ drug_rcp.date_de_premiere_autorisation|date:"d/m/Y"|apply_markup:"restructuredtext" }}
+<p class='title'>Date de Révision</p>
+{{ drug_rcp.date_de_révision|date:"d/m/Y"|apply_markup:"restructuredtext" }}
+<p class='title'>Dosimétrie</p>
+{% if drug_rcp.dosimetrie %}
+{{ drug_rcp.dosimétrie|apply_markup:"restructuredtext" }}
+{% endif %}
+<p class='title'>Radiopharmaceutique</p>
+{% if drug_rcp.radiopharmaceutique %}
+{{ drug_rcp.radiopharmaceutique|apply_markup:"restructuredtext" }}
+{% endif %}
+<p class='title'>Conditions de Prescription</p>
+{{ drug_rcp.conditions_de_prescription|apply_markup:"restructuredtext" }}
 </body>
+
+
+

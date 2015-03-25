@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'dico_app',
+    'django_markup', # used for Rst template
 )
 
 MIDDLEWARE_CLASSES = (

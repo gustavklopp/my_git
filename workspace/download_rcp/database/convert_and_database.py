@@ -1,12 +1,20 @@
 '''Synthesis of the different files :
 From the html files inside a given folder
 -convert it with the Rst compatible format
--put it inside database'''
+-put it inside database
+
+using:
+    1) correct_br : to correct non well formed html
+    2) convert_to_text: to convert html table to RstTable 
+        using the custom converter: html2ReST_table
+    3) get_rcp_section: scrape each section of the html and put inside database
+'''
+
 import os
 import sys
 from os.path import expanduser
 HOME = expanduser('~')
-sys.path.insert(0, HOME + '/workspace/download_rcp/convert_to_text/')
+sys.path.insert(0, HOME + '/my_git/workspace/download_rcp/convert_to_text/')
 from convert_to_text import convert_to_text
 from correct_br import correct_br
 from get_rcp_sections import get_rcp_sections
@@ -21,8 +29,8 @@ for root, dirs, files in os.walk(os.path.join(path, 'rcp')):
         if max_nb_files == 5:
             continue
         #copy file
-        file = HOME + '/workspace/download_rcp/html_files/rcp/'+ file
-        print(file)
+        file = HOME + '/my_git/workspace/download_rcp/html_files/rcp/'+ file
+        #print(file)
         head, filename = os.path.split(file)
         file_mod = os.path.join(head, '../rcp_mod/') + filename
         copyfile(file, file_mod)

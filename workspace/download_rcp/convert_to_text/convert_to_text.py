@@ -1,3 +1,9 @@
+''' Ouput a Rst comptatible file:
+    input: a html file inside html_mod
+    output: replace the html file 
+    Using: custom converter from html table to Rst Table: html2ReST_table
+'''
+
 from bs4 import BeautifulSoup
 import os
 import re # to find and replace image and table source
@@ -25,10 +31,10 @@ def convert_to_text(file):
             all_table = soup.findAll("table")
             for tab in all_table:
                 tab_str = str(tab)
-                print(tab_str)
+                # print(tab_str)
                 table_replaced = html2ReST_table.html2ReST_table(tab_str)
 #                 print(table_replaced)
-                tab.replace_with('<p class="AmmCorpsTexte">\n\n\n\n\n'+ table_replaced +'\n\n</p>')
+                tab.replace_with('<p class="AmmCorpsTexte">\n\n'+table_replaced+'</p>')
     
             import html.parser    # to convert html entity (&lt; etc..) in string
             h = html.parser.HTMLParser()
@@ -44,4 +50,3 @@ if __name__ == "__main__":
 
 
 
-    

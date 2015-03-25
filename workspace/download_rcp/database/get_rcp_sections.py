@@ -1,29 +1,55 @@
+''' Scrape each seaction of the html file and put it
+    inside the database (of Dicomedoc, or of Kivy_app)
+'''
+
 from bs4 import BeautifulSoup
 from sqlalchemy import *
 import os
 import datetime
 import re
 
+
+# function to transform html tag into rst
+def htmltag2rst(htmlobj):
+    # print(type(htmlobj))
+    # print(htmlobj.name)
+    if htmlobj.name == 'b':
+        rst_text = '**'+htmlobj.text+'**'
+    elif htmlobj.name != None:
+        rst_text = htmlobj.text
+    else:
+        rst_text = htmlobj
+    return rst_text
+
 def find_text(name, soup):
     text = ""
     parent = soup.find('a', {'name': name}).parent
     while True:
         if parent == None:
-            return text
+            break
  
         next_sibling = parent.find_next_sibling()
+        # if name == 'RcpIndicTherap': 
+            # print(next_sibling)
         try:
             class_sib = next_sibling['class'][0]
-        #         print(class_sib)
-        #         print(next_sibling)
+            # if name == "RcpIndicTherap":
+                # print(class_sib)
+                #print(next_sibling)
             if class_sib == "AmmAnnexeTitre1" \
                  or class_sib == "AmmAnnexeTitre2":
-                 return text
-            text += "\n" + next_sibling.text
+                 break
         except:
             pass
+        if name == 'RcpIndicTherap': 
+            text += '\n\n'
+            # print(next_sibling.contents)
+            for element in next_sibling.contents:
+                text += htmltag2rst(element)
         parent = next_sibling
-         
+    # print(text)
+    return text
+
 def get_rcp_sections(file):
     soup = BeautifulSoup(open(file, encoding='utf-8'))
     
@@ -88,12 +114,13 @@ def get_rcp_sections(file):
         radiopharma = None
     prescription = find_text('RcpCondPrescription', soup).strip()
     
-#     print(filename) 
+    #print(indication) 
     
-    db = create_engine('sqlite:///../../kivy_rcpBase/MyApp/rcp_database.db')
-    db.echo = True
+    #db = create_engine('sqlite:///../../kivy_rcpBase/MyApp/rcp_database.db')
+    db = create_engine('sqlite:///../../Dicomedoc/Dicomedoc/rcp_database.db')
+    db.echo = False
     metadata = MetaData(db)
-    rcp_table = Table('rcp_table', metadata, autoload=True)
+    rcp_table = Table('rcp_table', metadata, autoload=False)
     i = rcp_table.insert()
     i.execute({'rcp_id': filename, 
                'spec_name': spec_name,
@@ -126,5 +153,5 @@ def get_rcp_sections(file):
                'Conditions de Prescription': prescription})
 
 if __name__ == "__main__":
-    file = "../html_files/rcp_mod/00100000.html"
+    file = "../html_files/rcp_mod/0047821.html"
     get_rcp_sections(file)
