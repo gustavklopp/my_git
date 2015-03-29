@@ -1,5 +1,37 @@
+<!DOCTYPE html>
 <html>
 <head>
+<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js'></script>
+<script>
+$(document).ready(function(){
+	$(":text").keyup(function(){
+		var my_data = $(':text').val();
+		switch($('input[name=search_type]:checked').val()){
+			case "dci":
+				$.getJSON("dci_search", { search_text: my_data }, function(data){
+				//console.log("was successful :" + data);
+				var obj = $.parseJSON(data);
+				//console.log(obj);
+				$("#results").text('');
+				$.each(obj, function(key, val) {
+					$('<a href="'+val.rcp_id+'">'+val.spec_name+'</a><br/>').appendTo('#results');
+				});
+				});break;
+			case "spec":
+				$.getJSON("spec_search", { search_text: my_data }, function(data){
+				//console.log("was successful :" + data);
+				var obj = $.parseJSON(data);
+				//console.log(obj);
+				$("#results").text('');
+				$.each(obj, function(key, val) {
+					$('<a href="'+val.rcp_id+'">'+val.spec_name+'</a><br/>').appendTo('#results');
+				});
+				});break;
+				};
+	//$("#results").text('CLICK');
+				});
+});
+</script>
 <title>
 	DICOMEDOC
 </title>
@@ -18,7 +50,12 @@
 	<input type="text" name="search_text" value="">
 	<input type="submit" value="Rechercher">
 </form>
+Results from jquery:<br/>
+<p id="results">test</p>
+
 {% for drug in drugs_found %}
 <a href="{{ drug.rcp_id }}">{{ drug.spec_name }}</a> <br/>
+
 {% endfor %}
 </body>
+</html>

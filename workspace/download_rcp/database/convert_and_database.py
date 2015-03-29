@@ -26,18 +26,17 @@ max_nb_files = 0
 
 for root, dirs, files in os.walk(os.path.join(path, 'rcp')):
     for file in files:
-        if max_nb_files == 5:
-            continue
+        # if max_nb_files == 5: # Use it to limit the number of files to processed
+            # continue
         #copy file
         file = HOME + '/my_git/workspace/download_rcp/html_files/rcp/'+ file
         #print(file)
         head, filename = os.path.split(file)
         file_mod = os.path.join(head, '../rcp_mod/') + filename
         copyfile(file, file_mod)
-        
+
         #modification of the file
         correct_br(file_mod)
         convert_to_text(file_mod)
         get_rcp_sections(file_mod)
         max_nb_files += 1
-    

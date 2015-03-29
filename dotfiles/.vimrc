@@ -44,8 +44,8 @@ NeoBundleCheck
 
 " ColorScheme :
 set  t_Co=256
-"colorscheme github
-colorscheme desert
+" colorscheme github
+" colorscheme desert
 
 " display line number
 set nu

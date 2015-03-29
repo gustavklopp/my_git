@@ -9,7 +9,7 @@ import datetime
 import re
 
 
-# function to transform html tag into rst
+''' function to transform html tag <b> into rst **'''
 def htmltag2rst(htmlobj):
     # print(type(htmlobj))
     # print(htmlobj.name)
@@ -29,23 +29,24 @@ def find_text(name, soup):
             break
  
         next_sibling = parent.find_next_sibling()
-        # if name == 'RcpIndicTherap': 
+        # if name == 'RcpCompoQualitQuanti': 
             # print(next_sibling)
         try:
             class_sib = next_sibling['class'][0]
             # if name == "RcpIndicTherap":
                 # print(class_sib)
                 #print(next_sibling)
-            if class_sib == "AmmAnnexeTitre1" \
-                 or class_sib == "AmmAnnexeTitre2":
+            if class_sib == "AmmAnnexeTitre1" or class_sib == "AmmAnnexeTitre2":
                  break
         except:
             pass
-        if name == 'RcpIndicTherap': 
-            text += '\n\n'
-            # print(next_sibling.contents)
+        text += '\n\n'
+        # print(next_sibling.contents)
+        try:
             for element in next_sibling.contents:
                 text += htmltag2rst(element)
+        except:
+            pass
         parent = next_sibling
     # print(text)
     return text
@@ -65,6 +66,7 @@ def get_rcp_sections(file):
         date_modif = None
     
     composition = find_text('RcpCompoQualitQuanti', soup).strip()
+    print(composition)
     comp_split = composition.split('\n')[0]
     dci_name = re.sub(r'([\w ]*?)(\.)+([\w ]*?)', '', comp_split)
 
@@ -114,15 +116,15 @@ def get_rcp_sections(file):
         radiopharma = None
     prescription = find_text('RcpCondPrescription', soup).strip()
     
-    #print(indication) 
+    # print(indication) 
     
     #db = create_engine('sqlite:///../../kivy_rcpBase/MyApp/rcp_database.db')
     db = create_engine('sqlite:///../../Dicomedoc/Dicomedoc/rcp_database.db')
     db.echo = False
     metadata = MetaData(db)
-    rcp_table = Table('rcp_table', metadata, autoload=False)
+    rcp_table = Table('rcp_table', metadata, autoload=True)
     i = rcp_table.insert()
-    i.execute({'rcp_id': filename, 
+    i.execute({'rcp_id': filename,
                'spec_name': spec_name,
                'Date de Modification': date_modif,
                'Composition': composition,
