@@ -1,0 +1,10 @@
+{% extends "weblog/base.html" %}
+
+{% block main %}
+{% for post in post_list %}
+<h2><a href="{{ post.id }}">{{ post.title}}</a></h2><br/>
+{{ post.body }}<br/>
+{% include "weblog/post_footer.html" %}
+<hr/>
+{% endfor %}
+{% endblock %}

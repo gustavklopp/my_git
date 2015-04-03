@@ -1,0 +1,3 @@
+<div class="post_footer">Created: {{ post.date_created|date }} || Modified: {{ post.date_modified|date }}|| Tags: {% for tag in post.tags.all %}
+	{{ tag }}{% if not forloop.last %},{% endif %}
+	{% endfor %}</div>

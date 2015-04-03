@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0.1//EN">
+<html>
+<head>
+<meta http-equiv="content-Type" content="text/html; charset=utf-8">
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+<title>{% block title %}Max's BlogTech version 0.0.2{% endblock %}</title>
+</head>
+<body>
+
+<div id="header">
+	<h1><a href="{% url 'home' %}">Max's BlogTech version 0.0.2</a></h1>
+</div>
+<div id="sidebarLeft">
+ {% block sidebar %}
+  <h2 class="sidebar">ABOUT</h2>
+  <p>This is my new blog created using <a href="http://www.djangoproject.com">Django</a>,
+    a <a href="http://www.python.org">Python</a> web framework. This site is under 
+    construction. </p>
+  {% endblock %}
+</div>
+<div id="sidebarRight">
+ {% block sidebarRight %}
+  <h2 class="sidebarRight">TAGS</h2>
+  <p>Select a selection of different tags (or click directly on one link if only one is chosen): </p>
+<ul>
+{% for tag in tags_list %}
+<li>{{ tag }}</li>
+{% endfor %}
+</ul>
+  {% endblock %}
+</div>
+<div id="mainRight">
+  {% block main %}{% endblock %}
+</div>
+<div id="footer">
+  A <a href="http://www.djangoproject.com/">Django</a> site.
+</div>
+
+</body>
+</html>
