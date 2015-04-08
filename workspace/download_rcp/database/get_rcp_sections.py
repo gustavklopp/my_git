@@ -9,16 +9,29 @@ import datetime
 import re
 
 
-''' function to transform html tag <b> into rst **'''
+''' function to transform html tag <b> into rst **'
+     and to escape: 'C. difficile', '(a)', '*', and
+    remove the '<i>' (not recognized by rest) '''
 def htmltag2rst(htmlobj):
     # print(type(htmlobj))
     # print(htmlobj.name)
     if htmlobj.name == 'b':
+        # print(htmlobj)
+        # print(htmlobj.text)
         rst_text = '**'+htmlobj.text+'**'
     elif htmlobj.name != None:
         rst_text = htmlobj.text
     else:
         rst_text = htmlobj
+    ''' escaping :'''
+    rst_text = re.sub(r'\s([a-zA-Z]\.\s[a-zA-Z])',r'\\\g<1>', rst_text) # for 'C. difficile'
+    rst_text = re.sub(r'(^\([a-zA-Z]\))', r'\\\g<1>', rst_text) # for '(a)'
+    rst_text = re.sub(r'(^\*[a-zA-Z])', r'\\\g<1>', rst_text) # for '*'
+    ''' special case for <u>: I didn't managed to remove the tag... the error is
+    that Rest takes a trailing '_' as a link and generates an error:
+    my solution: not trailing '_': for example: '**posologie_:**' => '**posologie:**'
+    '''
+    rst_text = re.sub(r'(\*\*.*)\s+(\*\*)', r'\g<1>\g<2>', rst_text) # for '<u>'
     return rst_text
 
 def find_text(name, soup):
@@ -53,7 +66,7 @@ def find_text(name, soup):
 
 def get_rcp_sections(file):
     soup = BeautifulSoup(open(file, encoding='utf-8'))
-    
+    ''' Replace all the '<u>' tag by '' : undelined mistaken as link by rest'''
     head, filename = os.path.split(file)
     filename = filename.split('.')[0]
 
@@ -66,7 +79,7 @@ def get_rcp_sections(file):
         date_modif = None
     
     composition = find_text('RcpCompoQualitQuanti', soup).strip()
-    print(composition)
+    # print(composition)
     comp_split = composition.split('\n')[0]
     dci_name = re.sub(r'([\w ]*?)(\.)+([\w ]*?)', '', comp_split)
 
@@ -74,7 +87,7 @@ def get_rcp_sections(file):
     indication = find_text('RcpIndicTherap', soup).strip()
     posologie = find_text('RcpPosoAdmin', soup).strip()
     contre_indic = find_text('RcpContreIndic', soup).strip()
-    mise_en_garde = find_text('RcpMisesEnGarde', soup).strip()
+    mises_en_garde = find_text('RcpMisesEnGarde', soup).strip()
     interaction = find_text('RcpInteractions', soup).strip()
     grossesse_all = find_text('RcpGrossAllait', soup).strip()
     automobile = find_text('RcpConduite', soup).strip()
@@ -133,6 +146,7 @@ def get_rcp_sections(file):
                'Indication': indication,
                'Posologie': posologie,
                'Contre-indications': contre_indic,
+               'Mises en garde': mises_en_garde, 
                'Interactions': interaction,
                'Grossesse et Allaitement': grossesse_all,
                'Précautions conduite auto': automobile,

@@ -1,3 +1,10 @@
 .title {
+	font-size: 1.5em;
 	background-color: #b0c4de;
+}
+
+.subtitle {
+	font-size: 1.2em;
+	background-color: #FF5050;
+	text-decoration: underline;
 }

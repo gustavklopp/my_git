@@ -11,6 +11,7 @@ class RcpTable(models.Model):
     forme = models.TextField(db_column='Forme', blank=True)  # Field name made lowercase. This field type is a guess.
     indication = models.TextField(db_column='Indication', blank=True)  # Field name made lowercase. This field type is a guess.
     posologie = models.TextField(db_column='Posologie', blank=True)  # Field name made lowercase. This field type is a guess.
+    mises_en_garde = models.TextField(db_column='Mises en garde', blank=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. This field type is a guess.
     contre_indications = models.TextField(db_column='Contre-indications', blank=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. This field type is a guess.
     interactions = models.TextField(db_column='Interactions', blank=True)  # Field name made lowercase. This field type is a guess.
     grossesse_et_allaitement = models.TextField(db_column='Grossesse et Allaitement', blank=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. This field type is a guess.
